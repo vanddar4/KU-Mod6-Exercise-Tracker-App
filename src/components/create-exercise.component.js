@@ -22,6 +22,7 @@ export default class CreateExercise extends Component {
     }
   }
 
+  //React Life Cycle Method, called before display
   componentDidMount() {
     axios.get('http://localhost:5000/users/')
       .then(response => {
@@ -80,7 +81,7 @@ export default class CreateExercise extends Component {
     window.location = '/';
   }
 
-  render() {
+  render() { //form head
     return (
     <div>
       <h3>Create New Exercise Log</h3>
@@ -104,7 +105,7 @@ export default class CreateExercise extends Component {
         </div>
         <div className="form-group"> 
           <label>Description: </label>
-          <input  type="text"
+          <textarea type="text" placeholder="Activity"
               required
               className="form-control"
               value={this.state.description}
@@ -112,8 +113,8 @@ export default class CreateExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
-          <input 
+          <label>Duration (Hours:Mins:Secs): </label>
+          <input placeholder="00:00:00" rows="3"
               type="text" 
               className="form-control"
               value={this.state.duration}
@@ -121,7 +122,7 @@ export default class CreateExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Date: </label>
+          <label> Exercise Date: </label>
           <div>
             <DatePicker
               selected={this.state.date}

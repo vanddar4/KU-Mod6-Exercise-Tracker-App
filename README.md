@@ -25,4 +25,6 @@ Start-up guidance:
   in terminal $ npm install
   $ cd backend
   $ npm install
+  $ cd ..
+  create .env file, add ATLAS_URI= >Your Database Link<
   $ nodemon server
