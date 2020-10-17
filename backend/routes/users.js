@@ -1,20 +1,29 @@
-const router = require('express').Router();
-let User = require('../models/user.model');
+const router = require("express").Router();
+const notifier = require("node-notifier");
+let User = require("../models/user.model");
 
-router.route('/').get((req, res) => {
+router.route("/").get((req, res) => {
   User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then((users) => res.json(users))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route("/add").post((req, res) => {
   const username = req.body.username;
 
-  const newUser = new User({username});
+  const newUser = new User({ username });
 
-  newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+  newUser
+    .save()
+    .then(() =>
+      notifier.notify({
+        titel: "My notification",
+        message: "User Created",
+        timeout: 5,
+        sound: true,
+      })
+    )
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;
