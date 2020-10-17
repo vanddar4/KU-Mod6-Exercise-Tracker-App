@@ -116,7 +116,7 @@ export default class EditExercise extends Component {
         </div>
         <div className="form-group"> 
           <label>Description: </label>
-          <input  type="text"
+          <textarea  type="text" placeholder="Activity"
               required
               className="form-control"
               value={this.state.description}
@@ -124,8 +124,8 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
-          <input 
+          <label>Duration (Hours:Mins:Secs): </label>
+          <input placeholder="00:00:00" 
               type="text" 
               className="form-control"
               value={this.state.duration}
