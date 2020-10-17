@@ -8,6 +8,7 @@ import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import Footer from "./components/footer.component";
+import GoogleMap from "./components/map.component";
 
 function App() {
   return (
@@ -19,8 +20,11 @@ function App() {
         <Route path="/edit/:id" component={EditExercise} />
         <Route path="/create" component={CreateExercise} />
         <Route path="/user" component={CreateUser} />
-      </div>
+      <br/>
       <Footer />
+      <h3> Chart Your Path Here</h3>  
+        <GoogleMap />
+      </div>
     </Router>
   );
 }
