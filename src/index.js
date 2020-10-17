@@ -4,4 +4,4 @@ import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-//this is a test pull requet
+//this is a test pull request
