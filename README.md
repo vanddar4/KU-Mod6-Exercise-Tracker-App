@@ -1,32 +1,7 @@
-This is the code for KU Mod-6 project final project. Jared and I have created a exercise app using the following core technologies:
+Code for MERN tutorial.
 
-    MongoDB: A document-based open source database.
-    Express: A web application framework for Node.js.
-    React: A JavaScript front-end library for building user interfaces.
-    Node.js: JavaScript run-time environment that executes JavaScript code outside of a browser (such as a server)
+Video Tutorial: https://www.youtube.com/watch?v=7CqJlxBYj-M
 
+Article Tutorial: https://medium.com/@beaucarnes/learn-the-mern-stack-by-building-an-exercise-tracker-mern-tutorial-59c13c1237a1
 
-Folder/File Architecture is structured as follows:
-
-  backend
-    models
-    routes
-    server
-  public
-  src
-    component
-    app
-    index
-    css
-
-Start-up guidance:
-  - Download zip file from github repository or clone https://github.com/vanddar4/KU-Mod6-Exercise-Tracker-App
-  - open terminal in main folder
-  - in terminal $ npm install
-  - create .env file, add ATLAS_URI= >Your Database Link<
-  - $ cd backend
-  - $ npm install
-  - $ npm start
-  - open new terminal
-  - $ nodemon server
-  
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

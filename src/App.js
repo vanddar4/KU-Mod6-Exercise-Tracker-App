@@ -7,8 +7,6 @@ import ExercisesList from "./components/exercises-list.component";
 import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
-import Footer from "./components/footer.component";
-import GoogleMap from "./components/map.component";
 import UserLogin from "./components/user-login.component";
 import UserRegister from "./components/user-register.component";
 
@@ -24,10 +22,6 @@ function App() {
         <Route path='/user' component={CreateUser} />
         <Route path='/login' component={UserLogin} />
         <Route path='/register' component={UserRegister} />
-        <br />
-        <Footer />
-        <h3> Chart Your Path Here</h3>
-        <GoogleMap />
       </div>
     </Router>
   );

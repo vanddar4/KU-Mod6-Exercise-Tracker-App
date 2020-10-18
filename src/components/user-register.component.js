@@ -1,49 +1,103 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 export default class CreateUser extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      username: "",
+    };
+    this.state = {
+      password: "",
+    };
+  }
+
+  onChangeUsername(e) {
+    this.setState({
+      username: e.target.value,
+    });
+  }
+  onChangePassword(e) {
+    this.setState({
+      password: e.target.value,
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const user = {
+      username: this.state.username,
+    };
+
+    const password = {
+      password: this.state.password,
+    };
+
+    console.log(user);
+    console.log(password);
+
+    axios
+      .post("http://localhost:5000/users/register", user, password)
+      .then((res) => console.log(res.data));
+
+    this.setState({
+      username: "",
+    });
+
+    this.setState({
+      password: "",
+    });
+  }
+
   render() {
     return (
       <div>
         <form
-          class='text-center border border-light p-5'
-          action='/users/register'
-          method='POST'
+          className='text-center border border-light p-5'
+          onSubmit={this.onSubmit}
         >
-          <div class='form-group'>
-            <label for='username'>Username</label>
+          <div className='form-group'>
+            <label htmlFor='username'>Username</label>
             <input
               type='text'
-              class='form-control'
+              className='form-control'
               placeholder='Username'
               name='username'
               id='username'
-              value=''
+              value={this.state.username || ""}
+              onChange={this.onChangeUsername}
             ></input>
           </div>
-          <div class='form-group'>
-            <label for='password'>Password</label>
+          <div className='form-group'>
+            <label htmlFor='password'>Password</label>
             <input
               type='password'
-              class='form-control'
+              className='form-control'
               placeholder='Password'
               name='password'
               id='password'
-              value=''
+              value={this.state.password || ""}
+              onChange={this.onChangePassword}
             ></input>
           </div>
-          <div class='form-group'>
-            <label for='repeatPassword'>Repeat Password</label>
+          {/* <div className='form-group'>
+            <label htmlFor='repeatPassword'>Repeat Password</label>
             <input
               type='password'
-              class='form-control'
+              className='form-control'
               placeholder='Repeat-Password'
               name='repeatpassword'
               id='repeatpassword'
               value=''
             ></input>
-          </div>
-          <button type='submit' class='btn btn-primary'>
+          </div> */}
+          <button type='submit' className='btn btn-primary'>
             Register
           </button>
         </form>
