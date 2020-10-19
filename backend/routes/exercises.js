@@ -26,7 +26,7 @@ router.route("/add").post((req, res) => {
     .then(() =>
       notifier.notify({
         title: "My notification",
-        message: "Exersice Created",
+        message: "Exercise Created",
         timeout: 5,
         sound: true,
       })
@@ -45,7 +45,7 @@ router.route("/:id").delete((req, res) => {
     .then(() =>
       notifier.notify({
         title: "My notification",
-        message: "Exersice Deleted",
+        message: "Exercise Deleted",
         timeout: 5,
         sound: true,
       })
