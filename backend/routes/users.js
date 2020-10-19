@@ -28,26 +28,49 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// router.route("/register").post((req, res) => {
+//   console.log(req.body);
+//   const username = req.body.username;
+//   const password = req.body.password;
+
+//   const registration = new NewRegistration({ username, password });
+
+//   registration
+//     .save()
+//     .then(() =>
+//       notifier.notify({
+//         title: "My notification",
+//         message: "User Registerd",
+//         timeout: 5,
+//         sound: true,
+//       })
+//     )
+//     .catch((err) => res.status(400).json("Error: " + err));
+//   res.end();
+// });
+
 router.route("/register").post((req, res) => {
-  console.log(req.body);
-  const username = req.body.username;
-  const password = req.body.password;
-
-  const registration = new NewRegistration({ username, password });
-
-  registration
-    .save()
-    .then(() =>
-      notifier.notify({
-        title: "My notification",
-        message: "User Registerd",
-        timeout: 5,
-        sound: true,
-      })
-    )
-    .catch((err) => res.status(400).json("Error: " + err));
+  NewRegistration.create(req.body, (error, user) => {
+    if (error) {
+      console.log("didnt register");
+      console.log(error);
+    } else {
+      console.log("succesful registration");
+      console.log(user);
+    }
+  });
   res.end();
 });
+
+// router.route("/register").post((req, res) => {
+//   Users.create(req.body, (error, user) => {
+//     if (error) {
+//       return res.redirect("/guest-home");
+//     } else {
+//       res.redirect("/login");
+//     }
+//   });
+// });
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -56,7 +79,8 @@ router.post("/login", (req, res) => {
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
           // req.session.userId = user._id;
-          console.log(req.session);
+          console.log(user._id);
+          console.log(req.sessionID);
           console.log("logged in");
         } else {
           console.log("didnt log in");

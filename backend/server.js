@@ -18,6 +18,18 @@ mongoose.connect("mongodb://localhost/exercise_database", {
   autoIndex: true,
 });
 
+app.use(
+  expressionSession({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "strict",
+      httpOnly: false,
+    },
+  })
+);
+
 const exercisesRouter = require("./routes/exercises");
 const usersRouter = require("./routes/users");
 
@@ -25,13 +37,6 @@ app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 app.use("/registration", usersRouter);
 app.use("/login", usersRouter);
-app.use(
-  expressionSession({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
