@@ -33,7 +33,7 @@ router.route("/add").post((req, res) => {
 //   const username = req.body.username;
 //   const password = req.body.password;
 
-//   const registration = new NewRegistration({ username, password });
+  // const registration = new NewRegistration({ username, password });
 
 //   registration
 //     .save()
@@ -50,15 +50,29 @@ router.route("/add").post((req, res) => {
 // });
 
 router.route("/register").post((req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const registration = new NewRegistration({ username, password });
   NewRegistration.create(req.body, (error, user) => {
     if (error) {
       console.log("didnt register");
       console.log(error);
     } else {
-      console.log("succesful registration");
+      console.log("successful registration");
       console.log(user);
     }
   });
+  registration
+    .save()
+    .then(() =>
+      notifier.notify({
+        title: "My notification",
+        message: "User Registered",
+        timeout: 5,
+        sound: true,
+      })
+    )
+    .catch((err) => res.status(400).json("Error: " + err));
   res.end();
 });
 
@@ -72,17 +86,18 @@ router.route("/register").post((req, res) => {
 //   });
 // });
 
-  registration
-    .save()
-    .then(() =>
-      notifier.notify({
-        title: "My notification",
-        message: "User Registered",
-        timeout: 5,
-        sound: true,
-      })
-    )
-    .catch((err) => res.status(400).json("Error: " + err));
+  // registration
+  //   .save()
+  //   .then(() =>
+  //     notifier.notify({
+  //       title: "My notification",
+  //       message: "User Registered",
+  //       timeout: 5,
+  //       sound: true,
+  //     })
+  //   )
+  //   .catch((err) => res.status(400).json("Error: " + err));
+
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   NewRegistration.findOne({ username: username }, (error, user) => {

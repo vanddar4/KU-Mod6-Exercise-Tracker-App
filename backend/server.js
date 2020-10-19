@@ -12,7 +12,17 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost/exercise_database", {
+//DB Mongo Atlas Dashboard //Darren's version
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
+);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
+
+mongoose.connect("uri", {//Darren's version
+//mongoose.connect("mongodb://localhost/exercise_database", { //Jared's version
   useNewUrlParser: true,
   useUnifiedTopology: true,
   autoIndex: true,
