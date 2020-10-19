@@ -106,7 +106,8 @@ export default class CreateExercise extends Component {
           </div>
           <div className='form-group'>
             <label>Description: </label>
-            <input
+            <textarea
+              rows="2"
               type='text'
               required
               className='form-control'
