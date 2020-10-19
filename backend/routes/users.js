@@ -39,7 +39,7 @@ router.route("/register").post((req, res) => {
     .then(() =>
       notifier.notify({
         title: "My notification",
-        message: "User Registerd",
+        message: "User Registered",
         timeout: 5,
         sound: true,
       })
