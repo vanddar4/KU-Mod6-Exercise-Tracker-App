@@ -39,7 +39,9 @@ export default class CreateUser extends Component {
     console.log(userNameAndPassword);
 
     axios
-      .post("http://localhost:5000/users/register", userNameAndPassword)
+      .post("http://localhost:5000/users/register", userNameAndPassword, {
+        credentials: "include",
+      })
       .then((res) => console.log(res.data));
 
     this.setState({
@@ -54,6 +56,7 @@ export default class CreateUser extends Component {
   render() {
     return (
       <div>
+        <h3>Register</h3>
         <form
           className='text-center border border-light p-5'
           onSubmit={this.onSubmit}
