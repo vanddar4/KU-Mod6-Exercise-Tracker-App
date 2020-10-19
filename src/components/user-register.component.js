@@ -54,6 +54,7 @@ export default class CreateUser extends Component {
   render() {
     return (
       <div>
+        <h3>Register</h3>
         <form
           className='text-center border border-light p-5'
           onSubmit={this.onSubmit}
