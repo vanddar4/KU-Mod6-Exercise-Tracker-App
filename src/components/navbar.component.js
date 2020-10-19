@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     return (
       <nav className='navbar navbar-brown bg-dark navbar-expand-lg'>
         <Link to='/' className='navbar-brand'>
-          ExcerTracker
+          ExcerciseTracker
         </Link>
         <div className='collpase navbar-collapse'>
           <ul className='navbar-nav mr-auto'>
