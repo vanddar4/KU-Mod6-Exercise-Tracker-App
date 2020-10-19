@@ -30,8 +30,9 @@ router.route("/add").post((req, res) => {
 router.route("/register").post((req, res) => {
   console.log(req.body);
   const username = req.body.username;
+  const password = req.body.password;
 
-  const registration = new NewRegistration({ username });
+  const registration = new NewRegistration({ username, password });
 
   registration
     .save()

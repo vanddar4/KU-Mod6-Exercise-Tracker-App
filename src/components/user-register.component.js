@@ -31,19 +31,15 @@ export default class CreateUser extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
+    const userNameAndPassword = {
       username: this.state.username,
-    };
-
-    const password = {
       password: this.state.password,
     };
 
-    console.log(user);
-    console.log(password);
+    console.log(userNameAndPassword);
 
     axios
-      .post("http://localhost:5000/users/register", user, password)
+      .post("http://localhost:5000/users/register", userNameAndPassword)
       .then((res) => console.log(res.data));
 
     this.setState({
