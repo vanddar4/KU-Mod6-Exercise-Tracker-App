@@ -9,6 +9,8 @@ import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import UserLogin from "./components/user-login.component";
 import UserRegister from "./components/user-register.component";
+import Footer from "./components/footer.component";
+import GoogleMap from "./components/map.component";
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
         <Route path='/user' component={CreateUser} />
         <Route path='/login' component={UserLogin} />
         <Route path='/register' component={UserRegister} />
+        <Footer />
+        <GoogleMap />
+        
       </div>
     </Router>
   );

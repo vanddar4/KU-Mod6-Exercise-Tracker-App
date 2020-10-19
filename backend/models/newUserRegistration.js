@@ -23,5 +23,5 @@ UsersSchema.pre("save", function (next) {
   });
 });
 
-const NewUsers = mongoose.model("Users", UsersSchema);
+const NewUsers = mongoose.model("users", UsersSchema);
 module.exports = NewUsers;
