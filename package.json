@@ -6,6 +6,7 @@
     "axios": "^0.18.1",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.3.1",
+    "express-session": "^1.17.1",
     "google-maps-react": "^2.0.6",
     "node-notifier": "^8.0.0",
     "react": "^16.8.6",
