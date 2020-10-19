@@ -45,5 +45,6 @@ router.route("/register").post((req, res) => {
       })
     )
     .catch((err) => res.status(400).json("Error: " + err));
+  res.end();
 });
 module.exports = router;
