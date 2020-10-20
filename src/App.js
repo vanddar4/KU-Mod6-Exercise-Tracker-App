@@ -25,11 +25,9 @@ function App() {
         <Route path='/login' component={UserLogin} />
         <Route path='/register' component={UserRegister} />
         <Footer />
-        <br />
         <h3>Chart Your Course Here</h3>
         <GoogleMap />
       </div>
-      
     </Router>
   );
 }

@@ -6,7 +6,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className='navbar navbar-brown bg-dark navbar-expand-lg'>
-        <Link to='/' className='navbar-brand'> /*Link replaces a tags with basic bootstrap styless*/
+        <Link to='/' className='navbar-brand'>
           ExcerciseTracker
         </Link>
         <div className='collpase navbar-collapse'>
