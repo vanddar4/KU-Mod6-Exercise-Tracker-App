@@ -2,17 +2,20 @@ const router = require("express").Router();
 const notifier = require("node-notifier");
 let Exercise = require("../models/exercise.model");
 
-router.route("/").get((req, res) => { //GET Request
-  Exercise.find() //Finding Excercises from DB
+//CRUD Routes
+//GET Request, finding exercises from DB
+router.route("/").get((req, res) => { 
+  Exercise.find()
     .then((exercises) => res.json(exercises))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/add").post((req, res) => { //Post Request
+//POST Request, converting the data types into a new class of the newExercise for the DB and notify.
+router.route("/add").post((req, res) => { 
   const username = req.body.username;
   const description = req.body.description;
-  const duration = Number(req.body.duration); //converting to data type
-  const date = Date.parse(req.body.date); //converting to data type
+  const duration = Number(req.body.duration);
+  const date = Date.parse(req.body.date);
 
   const newExercise = new Exercise({
     username,
@@ -34,12 +37,14 @@ router.route("/add").post((req, res) => { //Post Request
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/:id").get((req, res) => {
+//GET Route, getting id from DB for each exercise from the URL
+router.route("/:id").get((req, res) => { 
   Exercise.findById(req.params.id)
     .then((exercise) => res.json(exercise))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//DELETE Route, finding id from DB for each exercise and deleting, notify on deletion
 router.route("/:id").delete((req, res) => {
   Exercise.findByIdAndDelete(req.params.id)
     .then(() =>
@@ -53,6 +58,7 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//POST Route updating current Exercise by ID URL, then setting new params for each req and notify.
 router.route("/update/:id").post((req, res) => {
   Exercise.findById(req.params.id)
     .then((exercise) => {
@@ -61,12 +67,11 @@ router.route("/update/:id").post((req, res) => {
       exercise.duration = Number(req.body.duration);
       exercise.date = Date.parse(req.body.date);
 
-      exercise
-        .save()
+      exercise.save()
         .then(() =>
           notifier.notify({
             title: "My notification",
-            message: "Exersice Updated",
+            message: "Exercise Updated",
             timeout: 5,
             sound: true,
           })

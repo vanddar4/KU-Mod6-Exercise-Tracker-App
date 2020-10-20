@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App'; //Starting point for App
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//Loading App into the root html element
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+);
