@@ -36,6 +36,7 @@ export default class CreateExercise extends Component {
       .catch((error) => {
         console.log(error);
       });
+    this.checkLoginStatus();
   }
 
   onChangeUsername(e) {
@@ -81,6 +82,16 @@ export default class CreateExercise extends Component {
     window.location = "/";
   }
 
+  checkLoginStatus() {
+    axios.get("http://localhost:5000/users/").then((response) => {
+      const user = response.username;
+      if (user) {
+        console.log("user is logged in");
+      } else {
+        console.log("user is not logged it");
+      }
+    });
+  }
   render() {
     return (
       <div>

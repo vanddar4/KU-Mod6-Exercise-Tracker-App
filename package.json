@@ -6,6 +6,7 @@
     "axios": "^0.18.1",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.3.1",
+    "cors": "^2.8.5",
     "node-notifier": "^8.0.0",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",
