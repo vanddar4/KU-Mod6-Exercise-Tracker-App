@@ -2,17 +2,17 @@ const router = require("express").Router();
 const notifier = require("node-notifier");
 let Exercise = require("../models/exercise.model");
 
-router.route("/").get((req, res) => {
-  Exercise.find()
+router.route("/").get((req, res) => { //GET Request
+  Exercise.find() //Finding Excercises from DB
     .then((exercises) => res.json(exercises))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/add").post((req, res) => {
+router.route("/add").post((req, res) => { //Post Request
   const username = req.body.username;
   const description = req.body.description;
-  const duration = Number(req.body.duration);
-  const date = Date.parse(req.body.date);
+  const duration = Number(req.body.duration); //converting to data type
+  const date = Date.parse(req.body.date); //converting to data type
 
   const newExercise = new Exercise({
     username,

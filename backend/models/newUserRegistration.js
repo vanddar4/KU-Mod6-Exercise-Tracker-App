@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
+//New Mongoose Schema for New Registered Users
 const UsersSchema = new Schema({
   username: {
     type: String,
@@ -10,7 +11,7 @@ const UsersSchema = new Schema({
   },
   password: {
     type: String,
-    // required: true,
+    required: true,
   },
 });
 
