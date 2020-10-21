@@ -43,6 +43,7 @@ export default class CreateUser extends Component {
         credentials: "include",
       })
       .then((res) => console.log(res.data));
+      window.location = "/login"
 
     this.setState({
       username: "",
