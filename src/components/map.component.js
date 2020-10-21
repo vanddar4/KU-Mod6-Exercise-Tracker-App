@@ -6,7 +6,7 @@ export class MapContainer extends Component {
     return (
       <Map 
           google={this.props.google} 
-          style={{width: '68%', height: '68%', position: 'center'}}
+          style={{width: '80%', height: '80%', position: 'center'}}
           className={'map'}
           zoom={14}
         >
@@ -19,3 +19,9 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: "AIzaSyD3KjyyZhYa41t6tsJN_VroCB9BNhduQE0",
 })(MapContainer);
+
+// <InfoWindow onClose={this.onInfoWindowClose}>
+//     <div>
+//       <h1>{this.state.selectedPlace.name}</h1>
+//     </div>
+// </InfoWindow>
