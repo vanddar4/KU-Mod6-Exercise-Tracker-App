@@ -9,7 +9,7 @@ export class MapContainer extends Component {
         style={{width: '68%', height: '68%', position: 'center'}}
         className={'map'}
         zoom={14}
-      >
+        >
         <Marker onClick={this.onMarkerClick} name={"Current location"} />
         <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
       </Map>

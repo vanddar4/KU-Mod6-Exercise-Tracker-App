@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
+//New Mongoose Schema for New Registered Users
 const UsersSchema = new Schema({
   username: {
     type: String,
@@ -25,5 +26,9 @@ UsersSchema.pre("save", function (next) {
   });
 });
 
-const NewUsers = mongoose.model("NewUsers", UsersSchema);
+
+const NewUsers = mongoose.model("users", UsersSchema);
+
+const NewUsers = mongoose.model("users", UsersSchema);
+
 module.exports = NewUsers;

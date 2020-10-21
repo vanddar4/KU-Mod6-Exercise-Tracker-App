@@ -3,10 +3,12 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+//TODO understand constuc
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
+    //binding this to each of the methods
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
@@ -22,7 +24,9 @@ export default class CreateExercise extends Component {
     };
   }
 
+  //React lifecycle method, automatically calling when page loads 
   componentDidMount() {
+
     axios
       .get("http://localhost:5000/users/")
       .then((response) => {
@@ -37,6 +41,18 @@ export default class CreateExercise extends Component {
         console.log(error);
       });
     // this.checkLoginStatus();
+
+    axios.get("http://localhost:5000/users/").then((response) => {
+      if (response.data.length > 0) {
+        this.setState({
+          users: response.data.map((user) => user.username),
+          username: response.data[0].username,
+        });
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
+
   }
 
   onChangeUsername(e) {
@@ -75,9 +91,13 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
+    //connecting to backend
     axios
       .post("http://localhost:5000/exercises/add", exercise)
       .then((res) => console.log(res.data));
+    
+    window.location = "/";
+
   }
 
   checkLoginStatus() {
@@ -115,7 +135,8 @@ export default class CreateExercise extends Component {
           </div>
           <div className='form-group'>
             <label>Description: </label>
-            <input
+            <textarea
+              rows="2"
               type='text'
               required
               className='form-control'
