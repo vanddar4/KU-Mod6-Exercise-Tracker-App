@@ -1,8 +1,12 @@
+// import axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom"; //Allow us to Link to different routes
+import { Link } from "react-router-dom"; 
+//Allow us to Link to different routes
+
 
 //Exporting the Navbar component to App.js and rendering
 export default class Navbar extends Component {
+  
   render() {
     return (
       <nav className='navbar navbar-blue bg-dark navbar-expand-lg'>
@@ -21,7 +25,6 @@ export default class Navbar extends Component {
                 Create Exercise Log
               </Link>
             </li>
-
             <li className='navbar-item'>
               <Link to='/login' className='nav-link' position='right'>
                 Login
@@ -31,6 +34,7 @@ export default class Navbar extends Component {
               <Link to='/register' className='nav-link' position='right'>
                 Register
               </Link>
+              
             </li>
           </ul>
         </div>

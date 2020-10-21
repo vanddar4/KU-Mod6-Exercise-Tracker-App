@@ -3,7 +3,6 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-//TODO understand constuc
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +39,7 @@ export default class CreateExercise extends Component {
       .catch((error) => {
         console.log(error);
       });
-    // this.checkLoginStatus();
+    this.checkLoginStatus();
 
     axios.get("http://localhost:5000/users/").then((response) => {
       if (response.data.length > 0) {
@@ -101,14 +100,10 @@ export default class CreateExercise extends Component {
   }
   //Calling API to get the user
   checkLoginStatus() {
-    axios.get("http://localhost:5000/users/").then((response) => {
-      const user = response.username;
-      if (user) {
-        console.log("user is logged in");
-      } else {
-        console.log("user is not logged it");
-      }
+    axios.get("http://localhost:5000/users/", {withCredentials: true}).then((response) => {
+    console.log(response);
     });
+     
   }
   render() {
     return (

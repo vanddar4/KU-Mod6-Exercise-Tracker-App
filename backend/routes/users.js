@@ -48,7 +48,6 @@ router.route("/register").post((req, res) => {
         timeout: 5,
         sound: true,
       });
-      console.log("succesful registration");
       console.log("successful registration");
       console.log(user);
     }
@@ -74,7 +73,8 @@ router.post("/login", (req, res) => {
     if (user) {
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
-          // req.session.userId = user._id;
+          req.session.userId = user._id
+          // console.log(req.session)
           notifier.notify({
             title: "My notification",
             message: "Login successful",

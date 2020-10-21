@@ -42,7 +42,7 @@ export default class CreateUser extends Component {
       .post("http://localhost:5000/users/login", userNameAndPassword, {
         credentials: "same-origin",
       })
-      .then((res) => console.log(res.data));
+      .then((res) => console.log(res.data))
       window.location = "/create";
 
     this.setState({
