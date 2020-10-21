@@ -11,7 +11,7 @@ import UserRegister from "./components/user-register.component";
 import Footer from "./components/footer.component";
 import GoogleMap from "./components/map.component";
 
-//In the app, route to the Router and to all the components in JSX, which is then converted to HTML.
+//In the app route to the Router and to all the nested components in JSX, which is then converted to HTML.
 function App() {
   return (
     <Router>
@@ -21,7 +21,7 @@ function App() {
         <Route path='/' exact component={ExercisesList} />
         <Route path='/edit/:id' component={EditExercise} />
         <Route path='/create' component={CreateExercise} />
-        
+        <br />
         <Route path='/login' component={UserLogin} />
         <Route path='/register' component={UserRegister} />
         <Footer />

@@ -7,7 +7,7 @@ export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
-    //binding this to each of the methods
+    //Passing arguments via bind to each of the methods
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
@@ -25,7 +25,6 @@ export default class CreateExercise extends Component {
 
   //React lifecycle method, automatically calling when page loads 
   componentDidMount() {
-
     axios
       .get("http://localhost:5000/users/")
       .then((response) => {
@@ -90,7 +89,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
-    //connecting to backend
+  //Connecting and sending data to backend
     axios
       .post("http://localhost:5000/exercises/add", exercise)
       .then((res) => console.log(res.data));
@@ -105,6 +104,7 @@ export default class CreateExercise extends Component {
     });
      
   }
+  //Simple Web Form
   render() {
     return (
       <div>

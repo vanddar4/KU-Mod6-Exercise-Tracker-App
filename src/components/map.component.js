@@ -5,10 +5,10 @@ export class MapContainer extends Component {
   render() {
     return (
       <Map 
-        google={this.props.google} 
-        style={{width: '68%', height: '68%', position: 'center'}}
-        className={'map'}
-        zoom={14}
+          google={this.props.google} 
+          style={{width: '68%', height: '68%', position: 'center'}}
+          className={'map'}
+          zoom={14}
         >
         <Marker onClick={this.onMarkerClick} name={"Current location"} />
       </Map>
