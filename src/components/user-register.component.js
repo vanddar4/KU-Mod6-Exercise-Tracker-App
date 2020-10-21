@@ -69,6 +69,7 @@ export default class CreateUser extends Component {
               type='text'
               className='form-control'
               placeholder='Username'
+              required={true}
               name='username'
               id='username'
               value={this.state.username || ""}
@@ -81,6 +82,7 @@ export default class CreateUser extends Component {
               type='password'
               className='form-control'
               placeholder='Password'
+              required={true}
               name='password'
               id='password'
               value={this.state.password || ""}

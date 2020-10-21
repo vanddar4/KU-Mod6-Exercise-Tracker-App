@@ -42,15 +42,6 @@ mongoose.connect("uri", {//Darren's version
   autoIndex: true,
 });
 
-//Requiring routes and using them.
-const exercisesRouter = require("./routes/exercises");
-const usersRouter = require("./routes/users");
-
-app.use("/exercises", exercisesRouter);
-app.use("/users", usersRouter);
-app.use("/registration", usersRouter);
-app.use("/login", usersRouter);
-
 app.use(
   expressionSession({
     secret: "keyboard cat",
@@ -62,6 +53,15 @@ app.use(
     },
   })
 );
+
+//Requiring routes and using them.
+const exercisesRouter = require("./routes/exercises");
+const usersRouter = require("./routes/users");
+
+app.use("/exercises", exercisesRouter);
+app.use("/users", usersRouter);
+app.use("/registration", usersRouter);
+app.use("/login", usersRouter);
 
 //Listening to the server port
 app.listen(port, () => {

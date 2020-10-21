@@ -99,7 +99,7 @@ export default class CreateExercise extends Component {
     window.location = "/";
 
   }
-
+  //Calling API to get the user
   checkLoginStatus() {
     axios.get("http://localhost:5000/users/").then((response) => {
       const user = response.username;

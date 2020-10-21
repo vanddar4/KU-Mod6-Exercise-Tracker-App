@@ -69,6 +69,7 @@ export default class CreateUser extends Component {
               className='form-control'
               placeholder='Username'
               name='username'
+              required={true}
               value={this.state.username || ""}
               onChange={this.onChangeUsername}
             ></input>
@@ -80,6 +81,7 @@ export default class CreateUser extends Component {
               className='form-control'
               placeholder='Password'
               name='password'
+              required={true}
               value={this.state.password || ""}
               onChange={this.onChangePassword}
             ></input>
