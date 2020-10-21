@@ -1,4 +1,4 @@
-npm This is the code for KU Mod-6 project final project. Jared and I have created a exercise app using the following core technologies:
+npm This is the code for KU Mod-6 project final project. Jared and I have created a exercise app to log and track exercises for a users using the following core technologies:
 
 - MongoDB: A document-based open source database.
 - Express: A web application framework for Node.js.
@@ -10,10 +10,11 @@ npm This is the code for KU Mod-6 project final project. Jared and I have create
   - models
     - exercise.model
     - user.model
+    - newUserRegistration
   - routes
     - exercises
     - users
-  - server
+  - server.js
   - .env
   - node_modules
   - package-lock.json
@@ -29,7 +30,7 @@ npm This is the code for KU Mod-6 project final project. Jared and I have create
     - map.component
     - navbar.component
     - user-login.component
-    - user-login.component
+    - user-register.component
   - App
   - Index
 - .gitignore

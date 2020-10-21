@@ -44,7 +44,7 @@ export default class CreateUser extends Component {
       .catch(error => {
         console.log(error);
       })
-      // window.location = "/login"
+      window.location = "/login"
 
     this.setState({
       username: "",

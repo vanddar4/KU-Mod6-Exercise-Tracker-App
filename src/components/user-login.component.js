@@ -43,7 +43,7 @@ export default class CreateUser extends Component {
         credentials: "same-origin",
       })
       .then((res) => console.log(res.data));
-      window.location = "/";
+      window.location = "/create";
 
     this.setState({
       username: "",

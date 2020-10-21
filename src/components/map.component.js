@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
 export class MapContainer extends Component {
   render() {
@@ -11,7 +11,6 @@ export class MapContainer extends Component {
         zoom={14}
         >
         <Marker onClick={this.onMarkerClick} name={"Current location"} />
-        <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
       </Map>
     );
   }
