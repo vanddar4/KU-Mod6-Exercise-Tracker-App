@@ -44,8 +44,6 @@ export default class CreateUser extends Component {
       })
       .then((res) => console.log(res.data));
 
-    window.location = "/create";
-
     this.setState({
       username: "",
     });
