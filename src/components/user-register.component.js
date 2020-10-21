@@ -40,10 +40,11 @@ export default class CreateUser extends Component {
 
     axios
       .post("http://localhost:5000/users/register", userNameAndPassword)
-      .then((res) => console.log(res.data));
-      window.location = "/login"
-
-    window.location = "/login";
+      .then((res) => console.log(res.data))
+      .catch(error => {
+        console.log(error);
+      })
+      // window.location = "/login"
 
     this.setState({
       username: "",

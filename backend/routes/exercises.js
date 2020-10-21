@@ -53,9 +53,11 @@ router.route("/:id").delete((req, res) => {
         message: "Exercise Deleted",
         timeout: 5,
         sound: true,
-      })
+      }),
+      console.log("User Deleted")
     )
     .catch((err) => res.status(400).json("Error: " + err));
+    
 });
 
 //POST Route updating current Exercise by ID URL, then setting new params for each req and notify.
