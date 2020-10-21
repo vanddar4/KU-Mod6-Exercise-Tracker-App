@@ -17,7 +17,7 @@ app.use(
     credentials: true,
   })
 );
-=======
+
 //Middleware and parsing json send and receive
 app.use(cors());
 app.use(express.json());
@@ -36,7 +36,7 @@ connection.once('open', () => {
 })
 
 mongoose.connect("uri", {//Darren's version
-//mongoose.connect("mongodb://localhost/exercise_database", { //Jared's version
+// mongoose.connect("mongodb://localhost/exercise_database", { //Jared's version
   useNewUrlParser: true,
   useUnifiedTopology: true,
   autoIndex: true,
