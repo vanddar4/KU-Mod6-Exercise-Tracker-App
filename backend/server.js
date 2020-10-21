@@ -10,6 +10,14 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+//Middleware
+app.use(
+  cors({
+    credentials: true,
+  })
+);
+=======
 //Middleware and parsing json send and receive
 app.use(cors());
 app.use(express.json());

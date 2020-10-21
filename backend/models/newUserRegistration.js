@@ -8,10 +8,12 @@ const UsersSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    minlength: 3,
   },
   password: {
     type: String,
     required: true,
+    minlength: 3,
   },
 });
 
@@ -24,5 +26,9 @@ UsersSchema.pre("save", function (next) {
   });
 });
 
+
 const NewUsers = mongoose.model("users", UsersSchema);
+
+const NewUsers = mongoose.model("users", UsersSchema);
+
 module.exports = NewUsers;

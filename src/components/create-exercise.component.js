@@ -26,6 +26,22 @@ export default class CreateExercise extends Component {
 
   //React lifecycle method, automatically calling when page loads 
   componentDidMount() {
+
+    axios
+      .get("http://localhost:5000/users/")
+      .then((response) => {
+        if (response.data.length > 0) {
+          this.setState({
+            users: response.data.map((user) => user.username),
+            username: response.data[0].username,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // this.checkLoginStatus();
+
     axios.get("http://localhost:5000/users/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
@@ -36,6 +52,7 @@ export default class CreateExercise extends Component {
     }).catch((error) => {
       console.log(error);
     });
+
   }
 
   onChangeUsername(e) {
@@ -80,8 +97,19 @@ export default class CreateExercise extends Component {
       .then((res) => console.log(res.data));
     
     window.location = "/";
+
   }
 
+  checkLoginStatus() {
+    axios.get("http://localhost:5000/users/").then((response) => {
+      const user = response.username;
+      if (user) {
+        console.log("user is logged in");
+      } else {
+        console.log("user is not logged it");
+      }
+    });
+  }
   render() {
     return (
       <div>

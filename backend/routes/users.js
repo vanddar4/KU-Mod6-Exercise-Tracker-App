@@ -26,26 +26,6 @@ router.route("/add").post((req, res) => { //POST Request
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// router.route("/register").post((req, res) => {
-//   console.log(req.body);
-//   const username = req.body.username;
-//   const password = req.body.password;
-
-  // const registration = new NewRegistration({ username, password });
-
-//   registration
-//     .save()
-//     .then(() =>
-//       notifier.notify({
-//         title: "My notification",
-//         message: "User Registerd",
-//         timeout: 5,
-//         sound: true,
-//       })
-//     )
-//     .catch((err) => res.status(400).json("Error: " + err));
-//   res.end();
-// });
 
 router.route("/register").post((req, res) => {
   const username = req.body.username;
@@ -53,9 +33,22 @@ router.route("/register").post((req, res) => {
   const registration = new NewRegistration({ username, password });
   NewRegistration.create(req.body, (error, user) => {
     if (error) {
+      notifier.notify({
+        title: "My notification",
+        message: error.errmsg,
+        timeout: 5,
+        sound: true,
+      });
       console.log("didnt register");
-      console.log(error);
     } else {
+
+      notifier.notify({
+        title: "My notification",
+        message: "Registration successful, please login to continue",
+        timeout: 5,
+        sound: true,
+      });
+      console.log("succesful registration");
       console.log("successful registration");
       console.log(user);
     }
@@ -74,27 +67,6 @@ router.route("/register").post((req, res) => {
   res.end();
 });
 
-// router.route("/register").post((req, res) => {
-//   Users.create(req.body, (error, user) => {
-//     if (error) {
-//       return res.redirect("/guest-home");
-//     } else {
-//       res.redirect("/login");
-//     }
-//   });
-// });
-
-  // registration
-  //   .save()
-  //   .then(() =>
-  //     notifier.notify({
-  //       title: "My notification",
-  //       message: "User Registered",
-  //       timeout: 5,
-  //       sound: true,
-  //     })
-  //   )
-  //   .catch((err) => res.status(400).json("Error: " + err));
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -103,14 +75,30 @@ router.post("/login", (req, res) => {
       bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
           // req.session.userId = user._id;
-          console.log(user._id);
-          console.log(req.sessionID);
+          notifier.notify({
+            title: "My notification",
+            message: "Login successful",
+            timeout: 5,
+            sound: true,
+          });
           console.log("logged in");
         } else {
+          notifier.notify({
+            title: "My notification",
+            message: "Login unsuccessful, please check your credentials",
+            timeout: 5,
+            sound: true,
+          });
           console.log("didnt log in");
         }
       });
     } else {
+      notifier.notify({
+        title: "My notification",
+        message: "Login unsuccessful, please check your credentials",
+        timeout: 5,
+        sound: true,
+      });
       console.log("didnt log in");
     }
   });

@@ -39,11 +39,11 @@ export default class CreateUser extends Component {
     console.log(userNameAndPassword);
 
     axios
-      .post("http://localhost:5000/users/register", userNameAndPassword, {
-        credentials: "include",
-      })
+      .post("http://localhost:5000/users/register", userNameAndPassword)
       .then((res) => console.log(res.data));
       window.location = "/login"
+
+    window.location = "/login";
 
     this.setState({
       username: "",

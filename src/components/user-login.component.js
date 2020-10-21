@@ -40,7 +40,7 @@ export default class CreateUser extends Component {
 
     axios
       .post("http://localhost:5000/users/login", userNameAndPassword, {
-        credentials: "include",
+        credentials: "same-origin",
       })
       .then((res) => console.log(res.data));
 
