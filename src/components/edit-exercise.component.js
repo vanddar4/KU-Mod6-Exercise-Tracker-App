@@ -3,7 +3,6 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-//
 export default class EditExercise extends Component {
   constructor(props) {
     super(props);
@@ -119,7 +118,9 @@ export default class EditExercise extends Component {
         </div>
         <div className="form-group"> 
           <label>Description: </label>
-          <input  type="text"
+          <textarea 
+              rows="2" 
+              type="text"
               required
               className="form-control"
               value={this.state.description}
