@@ -1,4 +1,4 @@
-This is the code for KU Mod-6 project final project. Jared and I have created a exercise app using the following core technologies:
+npm This is the code for KU Mod-6 project final project. Jared and I have created a exercise app using the following core technologies:
 
 - MongoDB: A document-based open source database.
 - Express: A web application framework for Node.js.
