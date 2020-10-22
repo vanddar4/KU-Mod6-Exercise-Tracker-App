@@ -130,6 +130,7 @@ export default class CreateExercise extends Component {
           <div className='form-group'>
             <label>Duration (in minutes): </label>
             <input
+              required
               type='text'
               className='form-control'
               value={this.state.duration}
@@ -140,6 +141,7 @@ export default class CreateExercise extends Component {
             <label>Date: </label>
             <div>
               <DatePicker
+                required
                 selected={this.state.date}
                 onChange={this.onChangeDate}
               />

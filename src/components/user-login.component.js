@@ -48,6 +48,7 @@ export default class CreateUser extends Component {
     this.setState({
       password: "",
     });
+    window.location = "/"
   };
 
   render() {
