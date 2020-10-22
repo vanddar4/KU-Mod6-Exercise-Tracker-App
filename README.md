@@ -20,6 +20,7 @@ This is the code for KU Mod-6 project final project. Jared and I have created a 
   - package-lock.json
   - package.json
 - public
+  - index.html
 - src
   - components
     - create-exercise.component
@@ -31,8 +32,8 @@ This is the code for KU Mod-6 project final project. Jared and I have created a 
     - navbar.component
     - user-login.component
     - user-register.component
-  - App
-  - Index
+  - App.js
+  - Index.js
 - .gitignore
 - package-lock.json
 - package.json

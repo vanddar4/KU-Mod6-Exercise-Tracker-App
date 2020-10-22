@@ -39,18 +39,6 @@ export default class CreateExercise extends Component {
         console.log(error);
       });
     this.checkLoginStatus();
-
-    axios.get("http://localhost:5000/users/").then((response) => {
-      if (response.data.length > 0) {
-        this.setState({
-          users: response.data.map((user) => user.username),
-          username: response.data[0].username,
-        });
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-
   }
 
   onChangeUsername(e) {
@@ -97,14 +85,14 @@ export default class CreateExercise extends Component {
     window.location = "/";
 
   }
-  //Calling API to get the user
+  //Calling API to get the users
   checkLoginStatus() {
     axios.get("http://localhost:5000/users/", {withCredentials: true}).then((response) => {
     console.log(response);
     });
      
   }
-  //Simple Web Form
+  //Web Form to render the new exercise for that user.
   render() {
     return (
       <div>
