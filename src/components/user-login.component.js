@@ -28,31 +28,27 @@ export default class CreateUser extends Component {
     });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-
+  onSubmit = async (e) => {
+    e.preventDefault();    
     const userNameAndPassword = {
       username: this.state.username,
       password: this.state.password,
-    };
-
-    console.log(userNameAndPassword);
-
-    axios
-      .post("http://localhost:5000/users/login", userNameAndPassword, {
-        credentials: "same-origin",
-      })
-      .then((res) => console.log(res.data))
-      window.location = "/create";
+    };    
+      const response = await axios.post(
+      'http://localhost:5000/users/login',
+      userNameAndPassword
+    );
+    localStorage.setItem("userNameAndPassword", response.config.data);
+    console.log(response);    
 
     this.setState({
       username: "",
-    });
+    });    
 
     this.setState({
       password: "",
     });
-  }
+  };
 
   render() {
     return (

@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 //Exporting the Navbar component to App.js and rendering
 export default class Navbar extends Component {
-  
+  onLogout() {
+    localStorage.clear();
+  }
   render() {
     return (
       <nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
@@ -34,7 +36,11 @@ export default class Navbar extends Component {
               <Link to='/register' className='nav-link' position='right'>
                 Register
               </Link>
-              
+            </li>
+            <li className='navbar-item'>
+              <Link to='/login' className='nav-link' position='right' onClick={() => this.onLogout()}>
+                Signout
+              </Link>
             </li>
           </ul>
         </div>
